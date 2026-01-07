@@ -1,0 +1,16 @@
+﻿using FootballTracker.Domain.Entities;
+
+namespace FootballTracker.Application.Abstractions.Repositories;
+
+public interface IClubRepository
+{
+    Task<bool> ExistsByNameAsync(string clubName);
+
+    Task<bool> ExistsByIdAsync(Guid clubId);
+
+    Task<Club?> GetByIdAsync(Guid clubId);
+
+    Task AddAsync(Club club);
+
+    
+}

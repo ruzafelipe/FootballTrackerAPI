@@ -1,0 +1,16 @@
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\bin\Debug\net8.0\FootballTracker.Application.deps.json
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\bin\Debug\net8.0\FootballTracker.Application.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\bin\Debug\net8.0\FootballTracker.Application.pdb
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\bin\Debug\net8.0\FootballTracker.Domain.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\bin\Debug\net8.0\FootballTracker.Domain.pdb
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.csproj.AssemblyReference.cache
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.AssemblyInfoInputs.cache
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.AssemblyInfo.cs
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.csproj.CoreCompileInputs.cache
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.sourcelink.json
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\Football.27123351.Up2Date
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\refint\FootballTracker.Application.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\FootballTracker.Application.pdb
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Application\obj\Debug\net8.0\ref\FootballTracker.Application.dll

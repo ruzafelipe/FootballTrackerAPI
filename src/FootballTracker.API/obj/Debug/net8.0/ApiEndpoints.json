@@ -1,0 +1,82 @@
+[
+  {
+    "ContainingType": "FootballTracker.API.Controllers.ClubsController",
+    "Method": "Register",
+    "RelativePath": "api/clubs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FootballTracker.API.DTOs.Clubs.RegisterClubRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootballTracker.API.Controllers.MatchsController",
+    "Method": "Register",
+    "RelativePath": "api/matchs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FootballTracker.API.DTOs.Matchs.RegisterMatchRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootballTracker.API.Controllers.StadiumsController",
+    "Method": "Register",
+    "RelativePath": "api/stadiums",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FootballTracker.API.DTOs.Stadiums.RegisterStadiumRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootballTracker.API.Controllers.UsersController",
+    "Method": "Register",
+    "RelativePath": "api/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FootballTracker.API.DTOs.Users.RegisterUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FootballTracker.API.Controllers.VisitsController",
+    "Method": "RegisterVisit",
+    "RelativePath": "api/visits",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FootballTracker.API.DTOs.Visits.RegisterVisitRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

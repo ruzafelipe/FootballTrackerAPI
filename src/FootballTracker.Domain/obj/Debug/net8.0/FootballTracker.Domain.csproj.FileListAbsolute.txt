@@ -1,0 +1,12 @@
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\bin\Debug\net8.0\FootballTracker.Domain.deps.json
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\bin\Debug\net8.0\FootballTracker.Domain.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\bin\Debug\net8.0\FootballTracker.Domain.pdb
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.AssemblyInfoInputs.cache
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.AssemblyInfo.cs
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.sourcelink.json
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\refint\FootballTracker.Domain.dll
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\FootballTracker.Domain.pdb
+C:\Users\Felipe Ruza\Desktop\Code\C#\FootballTracker\src\FootballTracker.Domain\obj\Debug\net8.0\ref\FootballTracker.Domain.dll
