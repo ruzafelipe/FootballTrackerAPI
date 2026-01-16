@@ -33,4 +33,24 @@ public class ClubRepository : IClubRepository
     {
         return await _context.Clubs.AnyAsync(c => c.Id == clubId);
     }
+
+    public Task UpdateAsync(Club club)
+    {
+        _context.Clubs.Update(club);
+        return _context.SaveChangesAsync();
+    }
+
+    public async Task<IReadOnlyList<Club>> GetAllActiveAsync(bool onlyActive = true)
+    {
+        var query = _context.Clubs.AsQueryable();
+
+        if(onlyActive)
+        {
+            query = query.Where(c => c.IsActive);
+        }
+
+        return await query
+            .OrderBy(c => c.Name)
+            .ToListAsync();
+    }
 }

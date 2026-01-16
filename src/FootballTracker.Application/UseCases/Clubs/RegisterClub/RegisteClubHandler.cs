@@ -1,10 +1,8 @@
-﻿
-
-using FootballTracker.Application.Abstractions.Repositories;
+﻿using FootballTracker.Application.Abstractions.Repositories;
 using FootballTracker.Application.Common;
 using FootballTracker.Domain.Entities;
 
-namespace FootballTracker.Application.UseCases;
+namespace FootballTracker.Application.UseCases.Clubs.RegisterClub;
 
 public sealed class RegisterClubHandler
 {
@@ -18,9 +16,14 @@ public sealed class RegisterClubHandler
     public async Task<Result> HandleAsync(RegisterClubCommand command)
     {
         if (await _clubRepository.ExistsByNameAsync(command.Name))
-            return Result.Failure("Club already exists.");
+            return Result.Failure("A club with this name already exists.");
 
-        var club = new Club(command.Name);
+        var club = new Club(command.Name,
+            command.City,
+            command.State,
+            command.Country,
+            command.FoundedAt,
+            command.LogoUrl);
 
         await _clubRepository.AddAsync(club);
 

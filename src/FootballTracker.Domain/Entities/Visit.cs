@@ -28,6 +28,6 @@ public class Visit : BaseEntity
     {
         UserId = userId;
         MatchId = matchId;
-        CreatedAt = DateTime.UtcNow;
+        CreatedAt = DateTime.Now;
     }
 }

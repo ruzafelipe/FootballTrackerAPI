@@ -1,5 +1,5 @@
 ﻿using FootballTracker.API.DTOs.Visits;
-using FootballTracker.Application.UseCases;
+using FootballTracker.Application.UseCases.Visits.RegisterVisit;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FootballTracker.API.Controllers;

@@ -1,9 +1,16 @@
-using FootballTracker.Application.UseCases;
+using FootballTracker.Application.UseCases.Clubs.ActivateClub;
+using FootballTracker.Application.UseCases.Clubs.DeactivateClub;
+using FootballTracker.Application.UseCases.Clubs.GetClubById;
+using FootballTracker.Application.UseCases.Clubs.ListClubs;
+using FootballTracker.Application.UseCases.Clubs.RegisterClub;
+using FootballTracker.Application.UseCases.Clubs.UpdateClub;
+using FootballTracker.Application.UseCases.Matchs.RegisterMatch;
+using FootballTracker.Application.UseCases.Stadiums.RegisterStadium;
+using FootballTracker.Application.UseCases.Users.RegisterUser;
+using FootballTracker.Application.UseCases.Visits.RegisterVisit;
 using FootballTracker.Infrastructure.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +31,11 @@ builder.Services.AddScoped<RegisterUserHandler>();
 builder.Services.AddScoped<RegisterStadiumHandler>();
 builder.Services.AddScoped<RegisterClubHandler>();
 builder.Services.AddScoped<RegisterMatchHandler>();
+builder.Services.AddScoped<UpdateClubHandler>();
+builder.Services.AddScoped<ActivateClubHandler>();
+builder.Services.AddScoped<DeactivateClubHandler>();
+builder.Services.AddScoped<ListClubHandler>();
+builder.Services.AddScoped<GetClubByIdHandler>();
 
 builder.Services.AddSwaggerGen(c =>
 {

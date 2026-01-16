@@ -1,7 +1,7 @@
 ﻿using FootballTracker.Application.Abstractions.Repositories;
 using FootballTracker.Domain.Entities;
 
-namespace FootballTracker.Application.UseCases;
+namespace FootballTracker.Application.UseCases.Users.RegisterUser;
 
 public sealed class RegisterUserHandler
 {

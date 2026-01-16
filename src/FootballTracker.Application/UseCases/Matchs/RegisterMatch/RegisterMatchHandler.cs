@@ -1,9 +1,8 @@
-﻿
-using FootballTracker.Application.Abstractions.Repositories;
+﻿using FootballTracker.Application.Abstractions.Repositories;
 using FootballTracker.Application.Common;
 using FootballTracker.Domain.Entities;
 
-namespace FootballTracker.Application.UseCases;
+namespace FootballTracker.Application.UseCases.Matchs.RegisterMatch;
 
 public sealed class RegisterMatchHandler
 {

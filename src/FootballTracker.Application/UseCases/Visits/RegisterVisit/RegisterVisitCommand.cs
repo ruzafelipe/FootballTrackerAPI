@@ -1,4 +1,4 @@
-﻿namespace FootballTracker.Application.UseCases;
+﻿namespace FootballTracker.Application.UseCases.Visits.RegisterVisit;
 
 
 /* 📌 Por que Command existe?

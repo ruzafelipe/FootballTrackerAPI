@@ -12,5 +12,8 @@ public interface IClubRepository
 
     Task AddAsync(Club club);
 
-    
+    Task UpdateAsync(Club club);   
+
+    Task<IReadOnlyList<Club>> GetAllActiveAsync(bool onlyActive = true);
+
 }

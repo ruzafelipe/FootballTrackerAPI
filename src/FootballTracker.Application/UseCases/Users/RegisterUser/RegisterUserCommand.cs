@@ -1,4 +1,4 @@
-﻿namespace FootballTracker.Application.UseCases;
+﻿namespace FootballTracker.Application.UseCases.Users.RegisterUser;
 public sealed class RegisterUserCommand
 {
     public string Name { get; }

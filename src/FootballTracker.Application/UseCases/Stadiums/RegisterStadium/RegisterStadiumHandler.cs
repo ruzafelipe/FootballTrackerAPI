@@ -3,7 +3,7 @@ using FootballTracker.Application.Common;
 using FootballTracker.Domain.Entities;
 
 
-namespace FootballTracker.Application.UseCases;
+namespace FootballTracker.Application.UseCases.Stadiums.RegisterStadium;
 
 public sealed class RegisterStadiumHandler
 {

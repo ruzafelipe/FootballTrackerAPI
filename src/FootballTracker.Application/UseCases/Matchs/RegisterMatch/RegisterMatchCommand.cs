@@ -1,4 +1,4 @@
-﻿namespace FootballTracker.Application.UseCases;
+﻿namespace FootballTracker.Application.UseCases.Matchs.RegisterMatch;
 
 
 public sealed class RegisterMatchCommand

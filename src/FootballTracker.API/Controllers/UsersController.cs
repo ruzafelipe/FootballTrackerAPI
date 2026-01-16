@@ -1,5 +1,5 @@
 ﻿using FootballTracker.API.DTOs.Users;
-using FootballTracker.Application.UseCases;
+using FootballTracker.Application.UseCases.Users.RegisterUser;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FootballTracker.API.Controllers;

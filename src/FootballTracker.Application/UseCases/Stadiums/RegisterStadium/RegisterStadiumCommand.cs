@@ -1,4 +1,4 @@
-﻿namespace FootballTracker.Application.UseCases;
+﻿namespace FootballTracker.Application.UseCases.Stadiums.RegisterStadium;
 public sealed class RegisterStadiumCommand
 {
     public string Name;
