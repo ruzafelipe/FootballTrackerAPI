@@ -34,10 +34,10 @@ public class ClubRepository : IClubRepository
         return await _context.Clubs.AnyAsync(c => c.Id == clubId);
     }
 
-    public Task UpdateAsync(Club club)
+    public async Task UpdateAsync(Club club)
     {
         _context.Clubs.Update(club);
-        return _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 
     public async Task<IReadOnlyList<Club>> GetAllActiveAsync(bool onlyActive = true)

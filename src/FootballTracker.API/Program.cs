@@ -5,7 +5,12 @@ using FootballTracker.Application.UseCases.Clubs.ListClubs;
 using FootballTracker.Application.UseCases.Clubs.RegisterClub;
 using FootballTracker.Application.UseCases.Clubs.UpdateClub;
 using FootballTracker.Application.UseCases.Matchs.RegisterMatch;
+using FootballTracker.Application.UseCases.Stadiums.ActivateStadium;
+using FootballTracker.Application.UseCases.Stadiums.DeactivateStadium;
+using FootballTracker.Application.UseCases.Stadiums.GetStadiumById;
+using FootballTracker.Application.UseCases.Stadiums.ListStadiums;
 using FootballTracker.Application.UseCases.Stadiums.RegisterStadium;
+using FootballTracker.Application.UseCases.Stadiums.UpdateStadium;
 using FootballTracker.Application.UseCases.Users.RegisterUser;
 using FootballTracker.Application.UseCases.Visits.RegisterVisit;
 using FootballTracker.Infrastructure.DependencyInjection;
@@ -27,10 +32,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddInfrastructureModule(builder.Configuration);
 
 builder.Services.AddScoped<RegisterVisitHandler>();
+
 builder.Services.AddScoped<RegisterUserHandler>();
+
 builder.Services.AddScoped<RegisterStadiumHandler>();
-builder.Services.AddScoped<RegisterClubHandler>();
+builder.Services.AddScoped<UpdateStadiumHandler>();
+builder.Services.AddScoped<ActivateStadiumHandler>();
+builder.Services.AddScoped<DeactivateStadiumHandler>();
+builder.Services.AddScoped<ListStadiumHandler>();
+builder.Services.AddScoped<GetStadiumByIdHandler>();
+
 builder.Services.AddScoped<RegisterMatchHandler>();
+
+builder.Services.AddScoped<RegisterClubHandler>();
 builder.Services.AddScoped<UpdateClubHandler>();
 builder.Services.AddScoped<ActivateClubHandler>();
 builder.Services.AddScoped<DeactivateClubHandler>();

@@ -11,4 +11,8 @@ public interface IStadiumRepository
     Task<Stadium?> GetByIdAsync(Guid stadiumId);
 
     Task AddAsync(Stadium stadium);
+
+    Task UpdateAsync(Stadium stadium);
+
+    Task<IReadOnlyList<Stadium>> GetAllActiveAsync(bool onlyActive = true);
 }

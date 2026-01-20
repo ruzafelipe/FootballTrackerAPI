@@ -36,4 +36,24 @@ public class StadiumRepository : IStadiumRepository
     {
         return await _context.Stadiums.AnyAsync(s => s.Id == stadiumId);
     }
+
+    public async Task UpdateAsync(Stadium stadium)
+    {
+        _context.Stadiums.Update(stadium);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<IReadOnlyList<Stadium>> GetAllActiveAsync(bool onlyActive = true)
+    {
+        var query = _context.Stadiums.AsQueryable();
+
+        if(onlyActive)
+        {
+            query = query.Where(s => s.IsActive);
+        }
+
+        return await query
+            .OrderBy(s => s.Name)
+            .ToListAsync();
+    }
 }

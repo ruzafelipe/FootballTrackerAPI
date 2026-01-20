@@ -118,7 +118,7 @@ public class ClubsController : ControllerBase
         if (!result.IsSuccess)
             return NotFound(result.Error);
 
-        return Ok(ClubMapper.ToDetailsResponse(result.Value));
+        return Ok(ClubMapper.ToDetailsResponse(result.Value!));
     }
 
 }
