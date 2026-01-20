@@ -19,7 +19,13 @@ public sealed class RegisterStadiumHandler
         if (await _stadiumRepository.ExistsByNameAsync(command.Name))
             return Result.Failure("Stadium already exists.");
 
-        var stadium = new Stadium(command.Name, command.City);
+        var stadium = new Stadium(command.Name,
+            command.City,
+            command.State,
+            command.Country,
+            command.Capacity,
+            command.OpenedDate,
+            command.PhotoUrl);  
 
         await _stadiumRepository.AddAsync(stadium);
 

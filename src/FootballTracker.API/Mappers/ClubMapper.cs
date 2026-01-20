@@ -15,8 +15,7 @@ public static class ClubMapper
             State = club.State,
             Country = club.Country,
             FoundedAt = club.FoundedAt,
-            LogoUrl = club.LogoUrl,
-            IsActive = club.IsActive
+            LogoUrl = club.LogoUrl            
         };
     }
 
