@@ -4,18 +4,27 @@ using FootballTracker.Application.UseCases.Clubs.GetClubById;
 using FootballTracker.Application.UseCases.Clubs.ListClubs;
 using FootballTracker.Application.UseCases.Clubs.RegisterClub;
 using FootballTracker.Application.UseCases.Clubs.UpdateClub;
-using FootballTracker.Application.UseCases.Matchs.RegisterMatch;
 using FootballTracker.Application.UseCases.Stadiums.ActivateStadium;
 using FootballTracker.Application.UseCases.Stadiums.DeactivateStadium;
 using FootballTracker.Application.UseCases.Stadiums.GetStadiumById;
 using FootballTracker.Application.UseCases.Stadiums.ListStadiums;
 using FootballTracker.Application.UseCases.Stadiums.RegisterStadium;
 using FootballTracker.Application.UseCases.Stadiums.UpdateStadium;
+using FootballTracker.Application.UseCases.Competitions.RegisterCompetition;
+using FootballTracker.Application.UseCases.Competitions.UpdateCompetition;
+using FootballTracker.Application.UseCases.Competitions.GetCompetitionById;
+using FootballTracker.Application.UseCases.Competitions.ListCompetitions;
+using FootballTracker.Application.UseCases.Competitions.ActivateCompetition;
+using FootballTracker.Application.UseCases.Competitions.DeactivateCompetition;
+using FootballTracker.Application.UseCases.Matchs.RegisterMatch;
 using FootballTracker.Application.UseCases.Users.RegisterUser;
 using FootballTracker.Application.UseCases.Visits.RegisterVisit;
+
 using FootballTracker.Infrastructure.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +59,13 @@ builder.Services.AddScoped<ActivateClubHandler>();
 builder.Services.AddScoped<DeactivateClubHandler>();
 builder.Services.AddScoped<ListClubHandler>();
 builder.Services.AddScoped<GetClubByIdHandler>();
+
+builder.Services.AddScoped<RegisterCompetitionHandler>();
+builder.Services.AddScoped<UpdateCompetitionHandler>();
+builder.Services.AddScoped<ListCompetitionHandler>();
+builder.Services.AddScoped<GetCompetitionByIdHandler>();
+builder.Services.AddScoped<ActivateCompetitionHandler>();
+builder.Services.AddScoped<DeactivateCompetitionHandler>();
 
 builder.Services.AddSwaggerGen(c =>
 {

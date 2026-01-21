@@ -24,6 +24,7 @@ public static class InfrastructureModule
         services.AddScoped<IVisitRepository, VisitRepository>();
         services.AddScoped<IStadiumRepository, StadiumRepository>();
         services.AddScoped<IClubRepository, ClubRepository>();
+        services.AddScoped<ICompetitionRepository, CompetitionRepository>();
 
         return services;
     }

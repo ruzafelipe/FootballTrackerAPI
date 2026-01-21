@@ -23,16 +23,15 @@ public class ClubRepository : IClubRepository
     {
         return await _context.Clubs.AnyAsync(c => c.Name == clubName);
     }
-
-    public async Task<Club?> GetByIdAsync(Guid clubId)
-    {
-        return await _context.Clubs.FindAsync(clubId);
-    }
-
     public async Task<bool> ExistsByIdAsync(Guid clubId)
     {
         return await _context.Clubs.AnyAsync(c => c.Id == clubId);
     }
+
+    public async Task<Club?> GetByIdAsync(Guid clubId)
+    {
+        return await _context.Clubs.FindAsync(clubId);
+    }  
 
     public async Task UpdateAsync(Club club)
     {

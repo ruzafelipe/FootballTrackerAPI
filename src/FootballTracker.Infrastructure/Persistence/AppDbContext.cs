@@ -10,6 +10,8 @@ namespace FootballTracker.Infrastructure.Persistence
         public DbSet<Visit> Visits => Set<Visit>();
         public DbSet<Stadium> Stadiums => Set<Stadium>();
         public DbSet<Club> Clubs => Set<Club>();    
+        public DbSet<Competition> Competitions => Set<Competition>();
+
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {            
