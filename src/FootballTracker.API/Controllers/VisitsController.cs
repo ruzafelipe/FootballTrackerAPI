@@ -9,17 +9,22 @@ namespace FootballTracker.API.Controllers;
 [Route("api/visits")]
 public class VisitsController : ControllerBase
 {
-    private readonly RegisterVisitHandler _handler;
-    public VisitsController(RegisterVisitHandler handler)
+    private readonly RegisterVisitHandler _registerVisitHandler;
+    public VisitsController(RegisterVisitHandler registerVisitHandler)
     {
-        _handler = handler;
+        _registerVisitHandler = registerVisitHandler;
     }
 
     [HttpPost]
     public async Task<IActionResult> RegisterVisit([FromBody] RegisterVisitRequest request)
     {
-        var command = new RegisterVisitCommand(request.UserId, request.MatchId);
-        var result = await _handler.HandleAsync(command);
+        var command = new RegisterVisitCommand(
+            request.UserId,
+            request.VisitDate,
+            request.MatchId,
+            request.MatchData
+        );
+        var result = await _registerVisitHandler.HandleAsync(command);
 
         if (!result.IsSuccess)
             return BadRequest(result.Error);

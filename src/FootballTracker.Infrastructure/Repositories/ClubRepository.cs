@@ -52,4 +52,11 @@ public class ClubRepository : IClubRepository
             .OrderBy(c => c.Name)
             .ToListAsync();
     }
+
+    public async Task<IReadOnlyList<Club>> GetAllAsync()
+    {
+        return await _context.Clubs
+            .OrderBy(c => c.Name)
+            .ToListAsync();
+    }
 }

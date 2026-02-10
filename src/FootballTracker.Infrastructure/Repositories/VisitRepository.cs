@@ -18,7 +18,7 @@ public class VisitRepository : IVisitRepository
     public async Task<bool> ExistsAsync(Guid userId, Guid matchId)
     {
         return await _context.Visits.AnyAsync(v =>
-            v.User.Id == userId &&
+            v.UserId == userId &&
             v.Match.Id == matchId);
     }
 

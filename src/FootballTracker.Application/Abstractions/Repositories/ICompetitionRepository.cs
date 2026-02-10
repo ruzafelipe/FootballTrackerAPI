@@ -10,4 +10,5 @@ public interface ICompetitionRepository
     Task AddAsync(Competition competition);
     Task UpdateAsync(Competition competition);   
     Task<IReadOnlyList<Competition>> GetAllActiveAsync(bool onlyActive = true);
+    Task<IReadOnlyList<Competition>> GetAllAsync();
 }

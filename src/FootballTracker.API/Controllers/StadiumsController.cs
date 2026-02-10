@@ -20,14 +20,14 @@ public class StadiumsController : ControllerBase
     private readonly UpdateStadiumHandler _updateStadiumHandler;
     private readonly ActivateStadiumHandler _activateStadiumHandler;
     private readonly DeactivateStadiumHandler _deactivateStadiumHandler;
-    private readonly ListStadiumHandler _listStadiumHandler;
+    private readonly ListStadiumsHandler _listStadiumHandler;
     private readonly GetStadiumByIdHandler _getStadiumByIdHandler;
 
     public StadiumsController(RegisterStadiumHandler registerStadiumHandler,
         UpdateStadiumHandler updateStadiumHandler,
         ActivateStadiumHandler activateStadiumHandler,
         DeactivateStadiumHandler deactivateStadiumHandler,
-        ListStadiumHandler listStadiumHandler,
+        ListStadiumsHandler listStadiumHandler,
         GetStadiumByIdHandler getStadiumByIdHandler)
     {
         _registerStadiumHandler = registerStadiumHandler;
@@ -101,7 +101,8 @@ public class StadiumsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] bool onlyActive = true)
     {
-        var stadiums = await _listStadiumHandler.HandleAsync(onlyActive);
+        var query = new ListStadiumsQuery(onlyActive);
+        var stadiums = await _listStadiumHandler.HandleAsync(query);
         var response = stadiums.Select(StadiumMapper.ToResponse);
 
         return Ok(response);
