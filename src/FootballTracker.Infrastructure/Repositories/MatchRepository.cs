@@ -1,6 +1,7 @@
 ﻿
 using FootballTracker.Application.Abstractions.Repositories;
 using FootballTracker.Domain.Entities;
+using FootballTracker.Domain.Enums;
 using FootballTracker.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,5 +34,23 @@ public class MatchRepository : IMatchRepository
     {
         await _context.Matches.AddAsync(match);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<Match?> GetByStadiumAndDateAsync(Guid stadiumId, DateTime matchDate)
+    {
+        return await _context.Matches.FirstOrDefaultAsync(m => m.Stadium.Id == stadiumId && m.MatchDate == matchDate);
+    }
+
+    public async Task UpdateAsync(Match match)
+    {
+        _context.Matches.Update(match);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<IReadOnlyList<Match>> GetAllByStatusesAsync(IReadOnlyCollection<MatchStatus> statuses)
+    {
+        return await _context.Matches
+            .Where(m => statuses.Contains(m.Status))
+            .ToListAsync();
     }
 }

@@ -4,6 +4,7 @@ using FootballTracker.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FootballTracker.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260123222846_RefactorMatchEntity")]
+    partial class RefactorMatchEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,21 +255,14 @@ namespace FootballTracker.Infrastructure.Migrations
                     b.Property<Guid>("MatchId")
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("VisitedAt")
-                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MatchId");
 
-                    b.HasIndex("UserId", "MatchId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Visits", (string)null);
                 });
@@ -314,7 +310,15 @@ namespace FootballTracker.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("FootballTracker.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Match");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

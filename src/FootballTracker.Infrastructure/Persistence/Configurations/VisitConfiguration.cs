@@ -13,12 +13,18 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
         builder.ToTable("Visits");
         // 2. Primary Key
         builder.HasKey(v => v.Id);
-        // 3. Relationship with User
-        builder.HasOne(v => v.User) //uma visita pertence a um usuário
-               .WithMany() //um usuário pode ter muitas visitas
-               .HasForeignKey(v => v.UserId) //fk
-               .IsRequired() //o usuário é obrigatório
-               .OnDelete(DeleteBehavior.Restrict); //impede exclusão em cascata
+        
+        builder.Property(v => v.UserId)
+            .IsRequired();
+
+        builder.Property(v => v.MatchId)
+            .IsRequired();
+
+        builder.Property(v => v.VisitedAt)
+            .IsRequired();
+
+        builder.Property(v => v.CreatedAt)
+            .IsRequired();
 
         builder.HasOne(v => v.Match)
                .WithMany()
@@ -26,8 +32,8 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
                .IsRequired()
                .OnDelete(DeleteBehavior.Restrict);
 
-        builder.Property(v => v.CreatedAt)
-               .IsRequired();
+        builder.HasIndex(v => new { v.UserId, v.MatchId })
+               .IsUnique(); // Garante que um usuário não possa registrar múltiplas visitas para o mesmo jogo
     }
 }
 

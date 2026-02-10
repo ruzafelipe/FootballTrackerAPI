@@ -56,4 +56,11 @@ public class StadiumRepository : IStadiumRepository
             .OrderBy(s => s.Name)
             .ToListAsync();
     }
+
+    public async Task<IReadOnlyList<Stadium>> GetAllAsync()
+    {
+        return await _context.Stadiums
+            .OrderBy(s => s.Name)
+            .ToListAsync();
+    }
 }

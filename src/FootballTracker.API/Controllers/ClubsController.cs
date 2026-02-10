@@ -19,7 +19,7 @@ public class ClubsController : ControllerBase
     private readonly UpdateClubHandler _updateClubHandler;
     private readonly DeactivateClubHandler _deactivateClubHandler;
     private readonly ActivateClubHandler _activateClubHandler;
-    private readonly ListClubHandler _listClubHandler;
+    private readonly ListClubsHandler _listClubsHandler;
     private readonly GetClubByIdHandler _getClubByIdHandler;
 
     public ClubsController(
@@ -27,14 +27,14 @@ public class ClubsController : ControllerBase
         UpdateClubHandler updateClubHandler,
         DeactivateClubHandler deactivateClubHandler,
         ActivateClubHandler activateClubHandler,
-        ListClubHandler listClubHandler,
+        ListClubsHandler listClubsHandler,
         GetClubByIdHandler getClubByIdHandler)
     {
         _registerClubHandler = registerClubHandler;
         _updateClubHandler = updateClubHandler;
         _deactivateClubHandler = deactivateClubHandler;
         _activateClubHandler = activateClubHandler;
-        _listClubHandler = listClubHandler;
+        _listClubsHandler = listClubsHandler;
         _getClubByIdHandler = getClubByIdHandler;
     }
 
@@ -102,7 +102,10 @@ public class ClubsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] bool onlyActive = true)
     {
-        var clubs = await _listClubHandler.HandleAsync(onlyActive);
+        var query = new ListClubsQuery(onlyActive);
+
+        var clubs = await _listClubsHandler.HandleAsync(query);
+
         var response = clubs.Select(ClubMapper.ToResponse);
 
         return Ok(response);

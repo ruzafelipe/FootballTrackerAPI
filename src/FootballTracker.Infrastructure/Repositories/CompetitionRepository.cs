@@ -55,7 +55,11 @@ public class CompetitionRepository : ICompetitionRepository
             .ToListAsync();
     }
 
-    
+    public async Task<IReadOnlyList<Competition>> GetAllAsync()
+    {
+        return await _context.Competitions
+            .OrderBy(c => c.Name)
+            .ToListAsync();
 
-    
+    }
 }

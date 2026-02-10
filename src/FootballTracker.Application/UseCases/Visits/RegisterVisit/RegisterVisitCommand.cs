@@ -1,4 +1,6 @@
-﻿namespace FootballTracker.Application.UseCases.Visits.RegisterVisit;
+﻿using FootballTracker.Application.DTOs;
+
+namespace FootballTracker.Application.UseCases.Visits.RegisterVisit;
 
 
 /* 📌 Por que Command existe?
@@ -18,11 +20,23 @@ Evita acoplamento com API
 public sealed class RegisterVisitCommand
 {
     public Guid UserId { get; }
-    public Guid MatchId { get; }    
+    public DateTime VisitDate { get; }
 
-    public RegisterVisitCommand(Guid userId, Guid matchId)
+    // Opção A: match já existe
+    public Guid? MatchId { get; }
+
+    // Opção B: criar match
+    public RegisterMatchData? MatchData { get; }
+
+    public RegisterVisitCommand(
+        Guid userId,
+        DateTime visitDate,
+        Guid? matchId,
+        RegisterMatchData? matchData)
     {
         UserId = userId;
-        MatchId = matchId;        
+        VisitDate = visitDate;
+        MatchId = matchId;
+        MatchData = matchData;
     }
 }

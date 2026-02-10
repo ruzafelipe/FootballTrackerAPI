@@ -6,7 +6,7 @@ namespace FootballTracker.API.Mappers;
 public static class CompetitionMapper
 {
 
-    public static CompetitionResponse ToResponse(this Competition competition)
+    public static CompetitionResponse ToResponse(Competition competition)
     {
         return new CompetitionResponse
         {
@@ -17,7 +17,7 @@ public static class CompetitionMapper
         };
     }
 
-    public static CompetitionDetailsResponse ToDetailsResponse(this Competition competition)
+    public static CompetitionDetailsResponse ToDetailsResponse(Competition competition)
     {
         return new CompetitionDetailsResponse
         {

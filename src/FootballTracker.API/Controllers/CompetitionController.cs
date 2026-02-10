@@ -17,7 +17,7 @@ public class CompetitionController : ControllerBase
     private readonly RegisterCompetitionHandler _registerCompetitionHandler;
     private readonly UpdateCompetitionHandler _updateCompetitionHandler;
     private readonly GetCompetitionByIdHandler _getCompetitionByIdHandler;
-    private readonly ListCompetitionHandler _listCompetitionHandler;
+    private readonly ListCompetitionsHandler _listCompetitionsHandler;
     private readonly ActivateCompetitionHandler _activateCompetitionHandler;
     private readonly DeactivateCompetitionHandler _deactivateCompetitionHandler;
 
@@ -25,14 +25,14 @@ public class CompetitionController : ControllerBase
         RegisterCompetitionHandler registerCompetitionHandler,
         UpdateCompetitionHandler updateCompetitionHandler,
         GetCompetitionByIdHandler getCompetitionByIdHandler,
-        ListCompetitionHandler listCompetitionHandler,
+        ListCompetitionsHandler listCompetitionsHandler,
         ActivateCompetitionHandler activateCompetitionHandler,
         DeactivateCompetitionHandler deactivateCompetitionHandler)
     {
         _registerCompetitionHandler = registerCompetitionHandler;
         _updateCompetitionHandler = updateCompetitionHandler;
         _getCompetitionByIdHandler = getCompetitionByIdHandler;
-        _listCompetitionHandler = listCompetitionHandler;
+        _listCompetitionsHandler = listCompetitionsHandler;
         _activateCompetitionHandler = activateCompetitionHandler;
         _deactivateCompetitionHandler = deactivateCompetitionHandler;
     }
@@ -110,7 +110,8 @@ public class CompetitionController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> List([FromQuery] bool onlyActive = true)
     {
-        var competitions = await _listCompetitionHandler.HandleAsync(onlyActive);
+        var query = new ListCompetitionsQuery(onlyActive);
+        var competitions = await _listCompetitionsHandler.HandleAsync(query);
         var response = competitions.Select(CompetitionMapper.ToResponse);
 
         return Ok(response);
@@ -126,10 +127,8 @@ public class CompetitionController : ControllerBase
         var result = await _getCompetitionByIdHandler.HandleAsync(query);
 
         if (!result.IsSuccess)
-            return NotFound(result.Error);
+            return NotFound(result.Error);        
 
-        var response = result.Value!.ToDetailsResponse();
-
-        return Ok(response);
+        return Ok(CompetitionMapper.ToResponse(result.Value!));
     }
 }
