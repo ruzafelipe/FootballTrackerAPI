@@ -106,9 +106,13 @@ public class ClubsController : ControllerBase
 
         var clubs = await _listClubsHandler.HandleAsync(query);
 
-        var response = clubs.Select(ClubMapper.ToResponse);
+        if (!clubs.IsSuccess)
+            return BadRequest(clubs.Error);
 
+        var response = clubs.Value!.Select(ClubMapper.ToResponse);
         return Ok(response);
+
+
     }
 
     [HttpGet("{id:guid}")]

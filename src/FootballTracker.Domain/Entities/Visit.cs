@@ -53,9 +53,7 @@ public class Visit : BaseEntity
     private void ValidateVisitedAt(DateTime visitedAt)
     {
         if (visitedAt > DateTime.Now)
-            throw new ArgumentException("Visit date cannot be in the future.");
-
-        VisitedAt = visitedAt;
+            throw new ArgumentException("Visit date cannot be in the future.");        
     }
 
     private void Touch()

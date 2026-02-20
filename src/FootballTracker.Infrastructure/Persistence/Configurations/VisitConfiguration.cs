@@ -32,6 +32,12 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
                .IsRequired()
                .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasIndex(v => v.UserId); // Índice para consultas por usuário
+
+        builder.HasIndex(v => v.MatchId); // Índice para consultas por Match
+
+        builder.HasIndex(v => v.VisitedAt); // Índice para consultas por data de visita
+
         builder.HasIndex(v => new { v.UserId, v.MatchId })
                .IsUnique(); // Garante que um usuário não possa registrar múltiplas visitas para o mesmo jogo
     }
