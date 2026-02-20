@@ -13,18 +13,18 @@ public sealed class GetCompetitionByIdHandler
         _competitionRepository = competitionRepository;
     }
 
-    public async Task<Result<Competition?>> HandleAsync(GetCompetitionByIdQuery query)
+    public async Task<Result<Competition>> HandleAsync(GetCompetitionByIdQuery query)
     {
         var competition = await _competitionRepository.GetByIdAsync(query.Id);
 
         if (competition is null)
         {
-            return Result<Competition?>.Failure("Competition not found");
+            return Result<Competition>.Failure("Competition not found");
         }
 
         if (!competition.IsActive)
         {
-            return Result<Competition?>.Failure("Competition is inactive");
+            return Result<Competition>.Failure("Competition is inactive");
         }
 
         return Result<Competition>.Success(competition);

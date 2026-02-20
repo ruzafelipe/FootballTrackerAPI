@@ -15,16 +15,16 @@ public sealed class GetMatchByIdHandler
     }
 
 
-    public async Task<Result<Match?>> HandleAsync(GetMatchByIdQuery query)
+    public async Task<Result<Match>> HandleAsync(GetMatchByIdQuery query)
     {
         var match = await _matchRepository.GetByIdAsync(query.MatchId);
         if (match is null)
-            return Result<Match?>.Failure("Match not found");
+            return Result<Match>.Failure("Match not found");
         //Posso remover essa verificação se quiser permitir acesso a partidas rejeitadas
         if (match.Status == MatchStatus.Rejected)        
-            return Result<Match?>.Failure("Match is rejected");
+            return Result<Match>.Failure("Match is rejected");
         
 
-        return Result<Match?>.Success(match);
+        return Result<Match>.Success(match);
     }
 }

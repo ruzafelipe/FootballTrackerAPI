@@ -13,16 +13,16 @@ public sealed class GetClubByIdHandler
         _clubRepository = clubRepository;
     }
 
-    public async Task<Result<Club?>> HandleAsync(GetClubByIdQuery query)
+    public async Task<Result<Club>> HandleAsync(GetClubByIdQuery query)
     {
         var club = await _clubRepository.GetByIdAsync(query.Id);
 
         if (club is null)
-            return Result<Club?>.Failure("Club not found");
+            return Result<Club>.Failure("Club not found");
         //Posso tirar isso depois para mostrar até mesmo os clubes inativos
         if (!club.IsActive)
-            return Result<Club?>.Failure("Club is inactive");
+            return Result<Club>.Failure("Club is inactive");
 
-        return Result<Club?>.Success(club);
+        return Result<Club>.Success(club);
     }
 }

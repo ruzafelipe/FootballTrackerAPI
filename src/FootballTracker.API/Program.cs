@@ -25,7 +25,11 @@ using FootballTracker.Application.UseCases.Matchs.ListMatches;
 using FootballTracker.Application.UseCases.Matchs.GetMatchById;
 
 using FootballTracker.Application.UseCases.Users.RegisterUser;
+
 using FootballTracker.Application.UseCases.Visits.RegisterVisit;
+using FootballTracker.Application.UseCases.Visits.ListVisitsByUser;
+using FootballTracker.Application.UseCases.Visits.ListVisitsByMatch;
+using FootballTracker.Application.UseCases.Visits.GetVisitById;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +46,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddInfrastructureModule(builder.Configuration);
 
 builder.Services.AddScoped<RegisterVisitHandler>();
+builder.Services.AddScoped<ListVisitsByUserHandler>();
+builder.Services.AddScoped<ListVisitsByMatchHandler>();
+builder.Services.AddScoped<GetVisitByIdHandler>();
 
 builder.Services.AddScoped<RegisterUserHandler>();
 

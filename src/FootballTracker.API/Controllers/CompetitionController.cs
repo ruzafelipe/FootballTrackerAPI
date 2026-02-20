@@ -112,8 +112,11 @@ public class CompetitionController : ControllerBase
     {
         var query = new ListCompetitionsQuery(onlyActive);
         var competitions = await _listCompetitionsHandler.HandleAsync(query);
-        var response = competitions.Select(CompetitionMapper.ToResponse);
+        
+        if (!competitions.IsSuccess)
+            return BadRequest(competitions.Error);
 
+        var response = competitions.Value!.Select(CompetitionMapper.ToResponse);
         return Ok(response);
 
     }

@@ -12,5 +12,9 @@ mas persistida depois na Infrastructure.
 public interface IVisitRepository
 {
     Task<bool> ExistsAsync(Guid userId, Guid matchId);
-    Task AddAsync(Visit visit);
+    Task AddAsync(Visit visit);    
+    Task<Visit?> GetByIdAsync(Guid visitId);
+    Task<IReadOnlyList<Visit>> GetByUserIdAsync(Guid userId);
+    Task<IReadOnlyList<Visit>> GetByMatchIdAsync(Guid matchId);
+
 }

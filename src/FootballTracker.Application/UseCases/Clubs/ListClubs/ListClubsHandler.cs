@@ -1,4 +1,5 @@
 ﻿using FootballTracker.Application.Abstractions.Repositories;
+using FootballTracker.Application.Common;
 using FootballTracker.Domain.Entities;
 
 namespace FootballTracker.Application.UseCases.Clubs.ListClubs;
@@ -12,14 +13,14 @@ public sealed class ListClubsHandler
         _clubRepository = clubRepository;
     }
 
-    public async Task<IReadOnlyList<Club>> HandleAsync(ListClubsQuery query)
+    public async Task<Result<IReadOnlyList<Club>>> HandleAsync(ListClubsQuery query)
     {
-       if (query.OnlyActive)
-       {
-            return await _clubRepository.GetAllActiveAsync();
-       }
 
-       return await _clubRepository.GetAllAsync();
+        var clubs = query.OnlyActive
+         ? await _clubRepository.GetAllActiveAsync()
+         : await _clubRepository.GetAllAsync();
+
+        return Result<IReadOnlyList<Club>>.Success(clubs);
 
     }
 }

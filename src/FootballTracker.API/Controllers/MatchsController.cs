@@ -61,9 +61,13 @@ public class MatchsController : ControllerBase
             MatchStatus.Pending
         });
 
-        var matches = await _listMatchesHandler.HandleAsync(query);
+        var result = await _listMatchesHandler.HandleAsync(query);
 
-        var response = matches.Select(MatchMapper.ToListResponse);
+        if (!result.IsSuccess)
+            return BadRequest(result.Error);
+
+        var response = result.Value!
+            .Select(MatchMapper.ToListResponse);
 
         return Ok(response);
     }

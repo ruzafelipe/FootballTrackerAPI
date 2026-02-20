@@ -103,8 +103,11 @@ public class StadiumsController : ControllerBase
     {
         var query = new ListStadiumsQuery(onlyActive);
         var stadiums = await _listStadiumHandler.HandleAsync(query);
-        var response = stadiums.Select(StadiumMapper.ToResponse);
+        
+        if (!stadiums.IsSuccess)
+            return BadRequest(stadiums.Error);
 
+        var response = stadiums.Value!.Select(StadiumMapper.ToResponse);
         return Ok(response);
     }
 
