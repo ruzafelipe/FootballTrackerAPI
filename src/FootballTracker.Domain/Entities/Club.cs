@@ -20,9 +20,7 @@ public class Club : BaseEntity
     public string Country { get; private set; }
     public DateTime? FoundedAt { get; private set; }
     public string? LogoUrl { get; private set; }
-    public bool IsActive { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdatedAt { get; private set; }
+    public bool IsActive { get; private set; }   
 
 
     protected Club() { } // Para ORM no futuro
@@ -40,8 +38,7 @@ public class Club : BaseEntity
         ValidateFoundedAt(foundedAt);
         ValidateLogoUrl(logoUrl);
 
-        IsActive = true;
-        CreatedAt = DateTime.Now;
+        IsActive = true;       
     }
 
     // Regras de domínio
@@ -55,7 +52,7 @@ public class Club : BaseEntity
             throw new ArgumentException("Club name is too long.");
 
         Name = name.Trim();
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateLocation(string city, string state, string country)
@@ -71,7 +68,7 @@ public class Club : BaseEntity
         State = state.Trim();
         Country = country.Trim();
 
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateFoundedAt(DateTime? foundedAt)
@@ -79,7 +76,7 @@ public class Club : BaseEntity
         if (foundedAt.HasValue && foundedAt > DateTime.Now)
             throw new ArgumentException("Founded date cannot be in the future.");
         FoundedAt = foundedAt;
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateLogoUrl(string? logoUrl)
@@ -89,24 +86,19 @@ public class Club : BaseEntity
             throw new ArgumentException("Invalid logo URL.");
 
         LogoUrl = logoUrl;
-        Touch();
+        SetUpdated();
     }
 
     public void Activate()
     {
        IsActive = true;
-       Touch();
+       SetUpdated();
     }
 
     public void Deactivate()
     {
         IsActive = false;
-        Touch();
+        SetUpdated();
     }
-    private void Touch()
-    {
-        UpdatedAt = DateTime.Now;
-    }
-
 }
 

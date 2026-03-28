@@ -26,6 +26,9 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
         builder.Property(v => v.CreatedAt)
             .IsRequired();
 
+        builder.Property(v => v.UpdatedAt)
+            .IsRequired(false);
+
         builder.HasOne(v => v.Match)
                .WithMany()
                .HasForeignKey(v => v.MatchId)

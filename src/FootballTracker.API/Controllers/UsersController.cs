@@ -14,7 +14,7 @@ public sealed class UsersController : ControllerBase
     {
         _handler = handler;
     }
-
+    /*
     [HttpPost]
     public async Task<IActionResult> Register(RegisterUserRequest request)
     {
@@ -30,5 +30,5 @@ public sealed class UsersController : ControllerBase
             new { id = userId },
             new { userId }
         );
-    }
+    }*/
 }

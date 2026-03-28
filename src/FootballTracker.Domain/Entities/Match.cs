@@ -28,10 +28,6 @@ public class Match : BaseEntity
     public Club HomeClub { get; private set; }
     public Club AwayClub { get; private set; }
     public MatchStatus Status { get; private set; }
-    
-    public DateTime CreatedAt { get; private set; } = DateTime.Now;
-    public DateTime? UpdatedAt { get; private set; }
-
 
     protected Match() { }
 
@@ -42,7 +38,7 @@ public class Match : BaseEntity
         Guid awayClubId,
         Guid createdByUserId,
         DateTime matchDate,
-        Guid? approvedOrRejectedByUserId = null        
+        Guid? approvedOrRejectedByUserId = null
         )
     {
         ValidateClubs(homeClubId, awayClubId);
@@ -64,7 +60,7 @@ public class Match : BaseEntity
             throw new ArgumentException("Home club and away club must be different.");
     }
 
-    private void ValidateMatchDate(DateTime matchDate)
+    private void ValidateMatchDate(DateTime matchDate) //ISSO PRECISA MELHORAR, MAS VAI SERVIR POR ENQUANTO
     {
         if (matchDate < DateTime.Now)
             throw new ArgumentException("Match date cannot be in the past.");
@@ -77,7 +73,7 @@ public class Match : BaseEntity
 
         Status = MatchStatus.Approved;
         ApprovedOrRejectedByUserId = approvedByUserId;
-        Touch();
+        SetUpdated();
     }
 
     public void Reject(Guid rejectByUserId)
@@ -87,16 +83,11 @@ public class Match : BaseEntity
 
         Status = MatchStatus.Rejected;
         ApprovedOrRejectedByUserId = rejectByUserId;
-        Touch();
+        SetUpdated();
     }
 
     public bool IsApproved()
     {
         return Status == MatchStatus.Approved;
-    }
-
-    private void Touch()
-    {
-        UpdatedAt = DateTime.Now;
-    }
+    }    
 }

@@ -12,7 +12,7 @@ public sealed class RegisterUserHandler
         _userRepository = userRepository;
     }
 
-    public async Task<Guid> HandleAsync(RegisterUserCommand command)
+    /*public async Task<Guid> HandleAsync(RegisterUserCommand command)
     {
         var user = new User(
             name: command.Name,
@@ -20,7 +20,7 @@ public sealed class RegisterUserHandler
         );
 
         await _userRepository.AddAsync(user);
-
+        
         return user.Id;
-    }
+    }*/
 }

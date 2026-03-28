@@ -13,7 +13,8 @@ public class MatchConfiguration : IEntityTypeConfiguration<Match>
         builder.HasKey(m => m.Id);
 
         builder.Property(m => m.Status)
-               .IsRequired();
+               .IsRequired()
+               .HasConversion<string>();
 
         builder.Property(m => m.MatchDate)
                .IsRequired();
