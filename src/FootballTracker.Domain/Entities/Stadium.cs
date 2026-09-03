@@ -21,9 +21,7 @@ public class Stadium : BaseEntity
     public int Capacity { get; private set; }
     public DateTime OpenedDate { get; private set; }    
     public string? PhotoUrl { get; private set; }
-    public bool IsActive { get; private set; } = true;
-    public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
-    public DateTime? UpdatedAt { get; private set; }
+    public bool IsActive { get; private set; } = true;    
 
     protected Stadium() { }
 
@@ -42,8 +40,7 @@ public class Stadium : BaseEntity
         ValidateCapacity(capacity);
         ValidatePhotoUrl(photoUrl);
 
-        IsActive = true;
-        CreatedAt = DateTime.Now;
+        IsActive = true;        
     }
 
     // Regras de domínio
@@ -55,7 +52,7 @@ public class Stadium : BaseEntity
         if (name.Length > 150)
             throw new ArgumentException("Stadium name is too long.");
         Name = name.Trim();
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateLocation(string city, string state, string country)
@@ -72,7 +69,7 @@ public class Stadium : BaseEntity
         City = city.Trim();
         State = state.Trim();
         Country = country.Trim();
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateCapacity(int capacity)
@@ -80,7 +77,7 @@ public class Stadium : BaseEntity
         if (capacity < 0)
             throw new ArgumentException("Capacity cannot be negative.");
         Capacity = capacity;
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateOpenedDate(DateTime openedDate)
@@ -88,7 +85,7 @@ public class Stadium : BaseEntity
         if (openedDate > DateTime.Now)
             throw new ArgumentException("Opened date cannot be in the future.");
         OpenedDate = openedDate;
-        Touch();
+        SetUpdated();
     }
 
     public void ValidatePhotoUrl(string? photoUrl)
@@ -98,23 +95,17 @@ public class Stadium : BaseEntity
             throw new ArgumentException("Invalid photo URL.");
 
         PhotoUrl = photoUrl;
-        Touch();
+        SetUpdated();
     }
 
     public void Activate()
     {
         IsActive = true;
-        Touch();
+        SetUpdated();
     }
     public void Deactivate()
     {
         IsActive = false;
-        Touch();
-    }
-
-
-    public void Touch()
-    {
-        UpdatedAt = DateTime.Now;
+        SetUpdated();
     }
 }

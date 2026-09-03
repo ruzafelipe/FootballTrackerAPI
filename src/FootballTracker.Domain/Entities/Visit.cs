@@ -18,9 +18,7 @@ public class Visit : BaseEntity
     public Guid MatchId { get; private set; }   
     public Match Match { get; private set; }
 
-    public DateTime VisitedAt { get; private set; }
-    public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdatedAt { get; private set; }
+    public DateTime VisitedAt { get; private set; } 
 
     protected Visit() { }
 
@@ -33,8 +31,7 @@ public class Visit : BaseEntity
         UserId = userId;
         MatchId = matchId;
         VisitedAt = visitedAt;
-
-        CreatedAt = DateTime.Now;
+        
     }
 
 
@@ -54,10 +51,5 @@ public class Visit : BaseEntity
     {
         if (visitedAt > DateTime.Now)
             throw new ArgumentException("Visit date cannot be in the future.");        
-    }
-
-    private void Touch()
-    {
-        UpdatedAt = DateTime.Now;
-    }
+    }    
 }

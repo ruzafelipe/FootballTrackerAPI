@@ -15,9 +15,6 @@ public class Competition : BaseEntity
 
     public bool IsActive { get; private set; }
 
-    public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdatedAt { get; private set; }
-
     protected Competition() { }
 
     public Competition(
@@ -34,7 +31,7 @@ public class Competition : BaseEntity
         ValidateDates(startDate, endDate);
         IsActive = true;
         Type = type;
-        CreatedAt = DateTime.Now;
+
     }
 
     public void UpdateDetails(
@@ -55,7 +52,7 @@ public class Competition : BaseEntity
         StartDate = startDate;
         EndDate = endDate;
 
-        Touch();
+        SetUpdated();
     }
 
 
@@ -68,7 +65,7 @@ public class Competition : BaseEntity
         if (name.Length > 150)
             throw new ArgumentException("Competition name is too long.");
         Name = name.Trim();
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateSeason(string season)
@@ -78,7 +75,7 @@ public class Competition : BaseEntity
         if (season.Length > 50)
             throw new ArgumentException("Season is too long.");
         Season = season.Trim();
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateCountry(string? country)
@@ -86,7 +83,7 @@ public class Competition : BaseEntity
         if (!string.IsNullOrWhiteSpace(country))
             Country = country.Trim();
 
-        Touch();
+        SetUpdated();
     }
 
     public void ValidateDates(DateTime? startDate, DateTime? endDate)
@@ -96,29 +93,18 @@ public class Competition : BaseEntity
 
         StartDate = startDate;
         EndDate = endDate;
-        Touch();
+        SetUpdated();
     }
 
     public void Activate()
     {
         IsActive = true;
-        Touch();
+        SetUpdated();
     }
 
     public void Deactivate()
     {
         IsActive = false;
-        Touch();
+        SetUpdated();
     }
-
-    public void Touch()
-    {
-        UpdatedAt = DateTime.Now;
-    }
-
-
-
-
-
-
 }

@@ -29,7 +29,7 @@ public class CompetitionConfiguration : IEntityTypeConfiguration<Competition>
 
         builder.Property(c => c.Type)
             .IsRequired()
-            .HasConversion<int>(); // enum → int
+            .HasConversion<string>(); // enum → string
 
         builder.Property(c => c.StartDate)
             .IsRequired(false);
